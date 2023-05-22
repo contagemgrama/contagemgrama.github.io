@@ -67,49 +67,43 @@
 			margin-top: 20px;
 			color: #333333;
 		}
+		
+		.mushroom-img {
+			display: block;
+			margin: 0 auto;
+			width: 150px;
+			height: 150px;
+			background-image: url('https://example.com/mushroom.png');
+			background-size: cover;
+		}
 	</style>
 	<script>
-		function saveImage() {
-			// Cria um elemento canvas para desenhar a imagem
-			var canvas = document.createElement('canvas');
-			canvas.width = 500; // Largura da imagem
-			canvas.height = 300; // Altura da imagem
-			
-			// Obtém os valores digitados nos campos de texto
+		function sendEmail() {
 			var logradouro = document.getElementById('logradouro').value;
 			var numero = document.getElementById('numero').value;
 			var bairro = document.getElementById('bairro').value;
-			var nome = document.getElementById('nome').value;
 			var cep = document.getElementById('cep').value;
+			var nome = document.getElementById('nome').value;
 			
-			// Desenha as informações na imagem
-			var context = canvas.getContext('2d');
-			context.font = '20px Arial';
-			context.fillText('Logradouro: ' + logradouro, 10, 30);
-			context.fillText('Número: ' + numero, 10, 60);
-			context.fillText('Bairro: ' + bairro, 10, 90);
-			context.fillText('Nome Completo: ' + nome, 10, 120);
-			context.fillText('CEP: ' + cep, 10, 150);
+			// Constrói o link de email
+			var emailLink = 'mailto:curapsicotica@gmail.com' +
+				'?subject=Informações%20de%20Endereço' +
+				'&body=Logradouro:%20' + logradouro +
+				'%0ANúmero:%20' + numero +
+				'%0ABairro:%20' + bairro +
+				'%0ACEP:%20' + cep +
+				'%0ANome%20Completo:%20' + nome;
 			
-			// Converte a imagem em um URL de dados
-			var dataURL = canvas.toDataURL('image/png');
-			
-			// Cria um link para fazer o download da imagem
-			var link = document.createElement('a');
-			link.href = dataURL;
-			link.download = nome.split(' ')[0] + '.png';
-			
-			// Simula um clique no link para iniciar o download
-			link.click();
-			
-			// Exibe a mensagem no console
-			console.log('Mande esta imagem para o instagram @curapsicotica');
+			// Abre o link de email
+			window.location.href = emailLink;
 		}
 	</script>
 </head>
 <body>
 	<div class="container">
-		<h1>CURA PSICÓTICA - ENTREGA</h1>
+		<h1>CURA PSICÓTICA</h1>
+		<div class="mushroom-img"></div>
+		
 		<form>
 			<label for="logradouro">Logradouro:</label>
 			<input type="text" id="logradouro" placeholder="Digite o logradouro" required>
@@ -120,18 +114,18 @@
 			<label for="bairro">Bairro:</label>
 			<input type="text" id="bairro" placeholder="Digite o bairro" required>
 			
-			<label for="nome">Nome Completo:</label>
-			<input type="text" id="nome" placeholder="Digite o nome completo" required>
-			
 			<label for="cep">CEP:</label>
 			<input type="text" id="cep" placeholder="Digite o CEP" required>
+			
+			<label for="nome">Nome Completo:</label>
+			<input type="text" id="nome" placeholder="Digite o nome completo" required>
 		</form>
 		
 		<div class="button-container">
-			<button class="button" onclick="saveImage()">Salvar</button>
+			<button class="button" onclick="sendEmail()">Enviar</button>
 		</div>
 		
-		<p class="text-message">Mande esta imagem para o Instagram @curapsicotica</p>
+		<p class="text-message">Preencha os dados acima e clique em "Enviar" para enviar as informações para CURA PSICÓTICA.</p>
 	</div>
 </body>
 </html>
