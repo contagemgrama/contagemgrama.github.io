@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Calculadora de Grama 🌎</title>
+  	<link rel="icon" type="image/png" href="https://cdn-0.emojis.wiki/emoji-pics/apple/herb-apple.png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,8 +38,8 @@
 <body>
     <div id="container">
         <h1>Calculadora de Grama</h1>
-        <input type="number" id="largura" placeholder="Digite a largura do canteiro em metros">
-        <input type="number" id="comprimento" placeholder="Digite o comprimento do canteiro em metros">
+        <input type="number" id="largura" placeholder="Digite a largura em M">
+        <input type="number" id="comprimento" placeholder="Digite o comprimento em M">
         <button onclick="calcular()">Calcular</button>
         <p id="resultado"></p>
     </div>
@@ -52,7 +54,7 @@
         var tapetes_necessarios = area_canteiro / area_tapete;
         var metros_necessarios = tapetes_necessarios / 4;
 
-        document.getElementById('resultado').innerHTML = "Para cobrir um canteiro de " + largura + "m x " + comprimento + "m, você precisará de " + metros_necessarios.toFixed(2) + " metros de grama. (" + tapetes_necessarios + " Tapetes.)";
+        document.getElementById('resultado').innerHTML = "Para cobrir um canteiro de " + largura + "m x " + comprimento + "m, você precisará de " + metros_necessarios.toFixed(2) + " metros de grama.";
     }
     </script>
 
